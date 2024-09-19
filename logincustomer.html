@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOGIN-CUSTOMWER</title>
+<h1>LOGIN</h1>
+</head>
+<body align = "center">
+<form id="myForm" onsubmit="return validateForm()" action = "location.html">
+
+ <label for="name">username:</label><br>
+ <input type="text" id="name" name="name" required><br><br>
+
+ <label for="password">Password:</label><br>
+ <input type="password" id="password" name="password" required><br><br>
+ 
+ <input type = "submit" value = "submit">
+</form>
+<script>
+function validateForm() {
+ var name = document.getElementById("username").value.trim();
+ var password = document.getElementById("password").value.trim();
+ 
+ // Check if any field is empty
+ if (username === "" || password === "") {
+ alert("Please fill out all fields.");
+ return false;
+ }
+ else{
+ return true;
+ }
+</script>
+</body>
+</html>

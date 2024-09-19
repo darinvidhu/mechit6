@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIGN IN</title>
+
+</head>
+
+<body align = "center">
+
+<h1>SIGNIN</H1>
+
+<form id="myForm" onsubmit="return validateForm()">
+ <label for="name">Name:</label><br>
+ <input type="text" id="name" name="name" required><br><br>
+ 
+ <label for="email">Email:</label><br>
+ <input type="email" id="email" name="email" required><br><br>
+ 
+ <label for="phone">Phone:</label><br>
+ <input type="tel" id="phone" name="phone" required><br><br>
+
+ <label for="accno">Account Number:</label><br>
+ <input type="tel" id="accno" name="accno" required><br><br>
+
+ <label for="photo">Photo:</label><br>
+ <input type="file" name="fileToUpload" id="fileToUpload"><br><br>
+
+ <label for="certificate">Degree Certificate:</label><br>
+ <input type="file" name="fileToUpload" id="fileToUpload"><br><br>
+
+<label for='shop'>Do you have a shop on own</label><br>
+
+<input type='radio' id='shop' name='shop' value='yes'>
+<label for='shop'>YES</label>
+
+<input type='radio' id='shop' name='shop' value='no'>
+<label for='shop'>NO</label><br><br>
+
+
+ <label for="address">Shop name and Address:</label><br>
+ <textarea id="address" name="address" placeholder = "if no, enter your home address" required></textarea><br><br>
+ 
+ <label for="address">Services you can do</label><br>
+ <textarea id="address" name="address" required></textarea><br><br> 
+
+<label for="service">Choose from below:</label><br>
+
+<select name="service" id="service" multiple>
+  <option value="cycle">CYCLE</option>
+  <option value="two wheeler">TWO WHEELER</option>
+  <option value="three wheeler">THREE WHEELER</option>
+  <option value="four wheeler">FOUR WHEELER</option>
+</select>
+<br><br>
+
+ <label for="exp">experience:</label><br>
+ <input type="tel" id="exp" name="exp" required><br><br>
+
+ <label for="name">Password:</label><br>
+ <input type="password" id="password" name="password" required><br><br>
+ </form>
+
+<form action = "selectgroup.html">
+<input type="submit" value="Submit">
+</form>
+<script>
+function validateForm() {
+ var name = document.getElementById("name").value.trim();
+ var email = document.getElementById("email").value.trim();
+ var phone = document.getElementById("phone").value.trim();
+ var address = document.getElementById("address").value.trim();
+ var photo = document.getElementById("photo").value.trim();
+ var certificate = document.getElementById("certificate").value.trim();
+ 
+ // Check if any field is empty
+ if (name === "" || email === "" || phone === "" || address === "" || photo === "" || certificate === "" || shop === "" || service === "" || accno === "") {
+ alert("Please fill out all fields.");
+ return false;
+ }
+ 
+ // Check if name contains at least 5 alphabetical characters
+ if (!/^[a-zA-Z]{5,}$/.test(name)) {
+ alert("Name must contain at least 5 alphabetical characters.");
+ return false;
+ }
+ 
+ // Validate email
+ if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+ alert("Please enter a valid email address.");
+ return false;
+ }
+ 
+ // Validate phone number
+ if (!/^\d{10}$/.test(phone)) {
+ alert("Please enter a valid 10-digit phone number.");
+ return false;
+ }
+ 
+ // All validations passed
+ return true;
+}
+</script>
+</body>
+</html>
